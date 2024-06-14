@@ -1,0 +1,34 @@
+package Chapter9_Access_Modifiers.java;
+
+class MyEmployee{
+   private int id;
+    private String name; // Here,To get access of this id and name (which is private) ,we used getter and setter methods
+                          //by using methods to get acceess and we implement data hiding
+   public String getName() {
+       return name;
+   }
+    public void setName(String n){// Here,we use setter which is nothing return .so,we use void
+//       name= n;this a valid
+        this.name=n;//this also valid
+}
+    public void setId(int i){// Here,we use setter which is nothing return .so,we use void
+//        id= i;// this a valid
+        this.id=i; // this also valid(this.name means we set name of this)
+    }
+    public int getId(){// Here,we use getter which is  return something.so,we use int
+        return id;
+    }
+}
+
+// By using getter and setter we also restrict that if we set name then,any one enter number then it shows error(because we set validation in both methods set &get)
+public class chpt_9_01_Access_Modifiers {
+    public static void main(String[] args) {
+        MyEmployee harry1 = new MyEmployee();
+//harry.id=78;
+//harry.name="IT solution";---->Throws an Error due to private access modifier(and aslo by using (dot.) operators we cannot access)
+        harry1.setName("shiv");
+        System.out.println(harry1.getName());
+        harry1.setId(56);
+        System.out.println(harry1.getId());
+    }
+}
